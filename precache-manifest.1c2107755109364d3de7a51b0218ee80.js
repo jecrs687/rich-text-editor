@@ -1,11 +1,11 @@
 self.__precacheManifest = (self.__precacheManifest || []).concat([
   {
-    "revision": "a6c017d36797144bb95967bef6d47e0e",
+    "revision": "b365a28a1930143b270b4d4e3442e739",
     "url": "/rich-text-editor/index.html"
   },
   {
-    "revision": "b1ee7bc26ae190a0dddc",
-    "url": "/rich-text-editor/static/css/main.239b8d45.chunk.css"
+    "revision": "6fef9dade572b5509c15",
+    "url": "/rich-text-editor/static/css/main.10f99132.chunk.css"
   },
   {
     "revision": "5ecd734c662bd42375cf",
@@ -16,7 +16,7 @@ self.__precacheManifest = (self.__precacheManifest || []).concat([
     "url": "/rich-text-editor/static/js/2.6e064219.chunk.js.LICENSE.txt"
   },
   {
-    "revision": "b1ee7bc26ae190a0dddc",
+    "revision": "6fef9dade572b5509c15",
     "url": "/rich-text-editor/static/js/main.6e5a49c3.chunk.js"
   },
   {
