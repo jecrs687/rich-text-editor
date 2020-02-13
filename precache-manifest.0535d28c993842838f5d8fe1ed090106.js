@@ -1,6 +1,6 @@
 self.__precacheManifest = (self.__precacheManifest || []).concat([
   {
-    "revision": "b365a28a1930143b270b4d4e3442e739",
+    "revision": "e17504803043992b7a7178d24a029424",
     "url": "/rich-text-editor/index.html"
   },
   {
