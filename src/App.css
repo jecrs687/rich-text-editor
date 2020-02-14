@@ -60,8 +60,8 @@ color: #ea12a2;
 }
 .App-box{ 
   padding: 10px;
-  border-style: solid none solid none;
-  border-width: 0.01px;
+  border: none;
+  
   background-color: transparent;
   height: max-content;
   width:  70vw;
@@ -69,9 +69,11 @@ color: #ea12a2;
 }
 
 .App-box:focus{ 
+  outline: none !important;
   padding: 10px;
   border-style: solid none solid none;
-  border-width: 0.05px;
+  border-width: 0.1px;
+  border-color: #ddd;
   background-color: transparent;
   height: max-content;
   width:  70vw;
