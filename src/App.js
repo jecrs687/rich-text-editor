@@ -116,7 +116,7 @@ function App() {
             <button  className="Button" onClick={()=>{addText()}}>+</button>:<div className="Button"/>}
             {index===focus && value.length>1?
             <button  className="Button" onClick={()=>{removeText()}}>-</button>:<div className="Button"/>}
-            <textarea placeholder="write here" style={{...data.style}} className="App-box" type="text" value={data.text} onChange={(target)=>{write(target)}} onFocus={()=>{setFocus(index)}} /> 
+            <textarea cl placeholder="write here" style={{...data.style}} className="App-box" type="text" value={data.text} onChange={(target)=>{write(target)}} onFocus={()=>{setFocus(index)}} /> 
             </div>
             ))
             }
