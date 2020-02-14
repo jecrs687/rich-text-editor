@@ -1,74 +1,53 @@
 import React from 'react';
 import './App.css';
 import { useState } from 'react';
+import {Button, Button2} from './components/allComponents'
 
-function Button({children, onClick}){
-  const [isSelected, select]= useState(false) 
-  return(
-      <button 
-      style={{backgroundColor:isSelected? '#bbb': '#eee'}} 
-      onClick={()=>{onClick(children);select(!isSelected)}} >
-        {children}
-      </button>
-    )
-}
-function Button2({children, onClick}){
-  return(
-      <button  
-      style={{backgroundColor: '#eee'}} 
-
-      onClick={()=>{onClick(children);}} >
-        {children}
-      </button>
-    )
-}
-
-function Text({text}){
-
-  return(
-    <p>{text}</p>
-  )
-}
 
 function App() {
-  const [value, setValue] = useState("")
-  // const [selecteds, setSelects]= useState([]) 
-  const [reload, setReload] = useState(true)
-  const [style, setStyle] = useState({
+  const [value, setValue] = useState([
+  {"text": '',
+  "style":{
     fontSize:14,
     fontWeight:'300',
     fontStyle:'normal'
-  })
+  }},
+])
+  const [focus, setFocus] = useState(-1)
+  // const [selecteds, setSelects]= useState([]) 
+  const [reload, setReload] = useState(true)
   var text;
-  function handleclick(value){
-    value = value.props? value.props.children:value;
-    var temp=style;
-    console.log({...style})
-    console.log(value)
-    switch(value){
+  function handleclick(command){
+    command = command.props? command.props.children:command;
+    var temp=value;
+    console.log({...temp[focus].style})
+    console.log(command)
+    switch(command){
       case 'i':
-        if(temp.fontStyle==='normal'){
-          temp.fontStyle='italic'
-          setStyle(temp)
+        if(temp[focus].style.fontStyle==='normal'){
+          temp[focus].style.fontStyle='italic'
+          setValue(temp)
         }else{
-         temp.fontStyle='normal'
-          setStyle(temp)
+          temp[focus].style.fontStyle='normal'
+          setValue(temp)
         }
         break;
       case "size+":
-        temp.fontSize=temp.fontSize+1
-        setStyle(temp)
+        temp[focus].style.fontSize=temp[focus].style.fontSize+1
+        setValue(temp)
         break;
       case "size-":
-        temp.fontSize=temp.fontSize-1
-        setStyle(temp)
+        temp[focus].style.fontSize=temp[focus].style.fontSize-1
+        setValue(temp)
         break;
       case "n":
-        if(temp.fontWeight==='300'){
-         temp.fontWeight='900'
-          setStyle(temp)}
-        else{temp.fontWeight='300'
-          setStyle(temp)}
+        if(temp[focus].style.fontWeight==='300'){
+          temp[focus].style.fontWeight='900'
+          setValue(temp)
+        }
+        else{temp[focus].style.fontWeight='300'
+        setValue(temp)
+      }
         break;
       default:
         break
@@ -83,11 +62,35 @@ function App() {
     // }
     // console.log(selecteds)
   }
+
   function write({target}){
     text = target.value
-    console.log(value)
+    console.log(text)
+    var temp = value
+    temp[focus].text = target.value
+    setValue(temp)
+    setReload(!reload)
 
-    setValue(target.value)
+  }
+  
+  function addText(){
+    var temp = value;
+    temp.splice(focus+1, 0,   
+      {"text": '',
+    "style":{
+      fontSize:14,
+      fontWeight:'300',
+      fontStyle:'normal'
+    }})
+    setValue(temp)
+    setReload(!reload)
+
+  }
+  function removeText(){
+    var temp = value;
+    temp.splice(focus,1)
+    setValue(temp)
+    setReload(!reload)
 
   }
   return (
@@ -95,22 +98,29 @@ function App() {
       <div className="App-head">
         <div className="App-head-box">
 
-          <Button onClick={handleclick}><strong>n</strong></Button>
-          <Button onClick={handleclick}><i>i</i></Button>
+          <Button value={value[focus]} onClick={handleclick}><strong>n</strong></Button>
+          <Button value={value[focus]} onClick={handleclick}><i>i</i></Button>
           <Button2 onClick={handleclick}>size+</Button2>
           <Button2 onClick={handleclick}>size-</Button2>
         </div>
+        {value[focus]?
         <div className="App-head-box">
-          <h4>fontSize: {style.fontSize} | fontStyle: {style.fontStyle} | fontWeight: {style.fontWeight}</h4>
-
-         </div>
+        <h4>fontSize: {value[focus].style.fontSize} | fontStyle: {value[focus].style.fontStyle} | fontWeight: {value[focus].style.fontWeight}</h4>
+         </div>:null}
       </div>
       <div className="App-body"> 
-        <textarea style={{...style}} className="App-box"  type="text" value={value} onChange={write} />
-        <div className='App-box'>
-          <Text text={text}/>
+          {
+          value.map((data,index)=>(
+            <div className="App-body-box">
+              {index===focus?
+            <button  className="Button" onClick={()=>{addText()}}>+</button>:<div className="Button"/>}
+            {index===focus && value.length>1?
+            <button  className="Button" onClick={()=>{removeText()}}>-</button>:<div className="Button"/>}
+            <textarea placeholder="write here" style={{...data.style}} className="App-box" type="text" value={data.text} onChange={(target)=>{write(target)}} onFocus={()=>{setFocus(index)}} /> 
+            </div>
+            ))
+            }
         </div>
-      </div>
       <div className="App-footer">
         this is an open-source project by: 
         <a href="https://jecrs687.github.io/"> @jecrs687</a>

@@ -3,20 +3,20 @@
   display: flex;
   flex-direction: column;
   padding: 20px;
-  background-color: #ddd;
+  background-color: #fdfdfd;
   flex: 1;
 }
 .App-head-box{
   display: flex;
   padding: 5px;
-  background-color: #ccc;
+  background-color: #e0e0e0;
   height: 50px;
   width:  80vw;
 }
 .App-head{
   display: flex;
   flex-direction: column;
-  background-color: #ccc;
+  background-color: #e0e0e0;
   margin: 10px;
 
 }
@@ -33,16 +33,57 @@ color: #ea12a2;
   width: inherit;
   margin-top: 10px;
 }
+.App-body-box{ 
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
 
+.App-body-box .Button{ 
+  width: 5vmin;
+  height: 5vmin;
+  border-radius: 5vmax;
+  color:white;
+  font-size: 3vmin;
+}
+.App-body-box button{ 
+  background-color:#ea12a2;
+  animation: fill 1s linear;
+}
+@keyframes fill{
+  from{
+    opacity: 0.5;
+  }
+  to{
+    opacity: 0.7;
+  }
+}
 .App-box{ 
-  line-break: strict;
   padding: 10px;
-  border: #ddd;
-  background-color: #f1f1f1;
-  border-width: 0.1px;
-  border-style: solid;
-  height: 30vh;
-  width:  80vw;
+  border-style: solid none solid none;
+  border-width: 0.01px;
+  background-color: transparent;
+  height: max-content;
+  width:  70vw;
+  margin: 2px;
+}
+
+.App-box:focus{ 
+  padding: 10px;
+  border-style: solid none solid none;
+  border-width: 0.05px;
+  background-color: transparent;
+  height: max-content;
+  width:  70vw;
+  margin: 10px;
+}
+.App-box-focus{ 
+  padding: 10px;
+  border-style: solid none solid none;
+  border-width: 0.05px;
+  background-color: transparent;
+  height: max-content;
+  width:  70vw;
   margin: 10px;
 }
 .App-footer{
@@ -56,4 +97,6 @@ a{
   text-decoration-line: none;
   color:#ea12a2;
 }
-@media
+@media screen and (max-width:300px){
+  
+}
