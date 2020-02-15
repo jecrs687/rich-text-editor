@@ -6,7 +6,7 @@ import {Button, Button2} from './components/allComponents'
 
 function App() {
   const [value, setValue] = useState([
-  {"text": 'yuyvu ** teste',
+  {"text": '',
   "style":{
     fontSize:14,
     fontWeight:'300',
@@ -135,17 +135,8 @@ function App() {
             // onInput={(all)=>{write(all.currentTarget.textContent)}}
             // onChange={(all)=>{console.log(all)}}
             onFocus={()=>{setFocus(index)}}>
-              {()=>{ 
-            return (
-          data.text.split(' ** ').map(
-              (value,index)=>(
-                <strong>{value}</strong>
-            )
-            ))}
+              {value.text}
               
-            
-            
-              }
               </div> 
             </div>
             ))
