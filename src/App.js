@@ -6,11 +6,12 @@ import {Button, Button2} from './components/allComponents'
 
 function App() {
   const [value, setValue] = useState([
-  {"text": '',
+  {"text": 'yuyvu ** teste',
   "style":{
     fontSize:14,
     fontWeight:'300',
-    fontStyle:'normal'
+    fontStyle:'normal',
+    textAlign:'center'
   }},
 ])
   const [focus, setFocus] = useState(-1)
@@ -50,7 +51,9 @@ function App() {
       }
         break;
       default:
-        break
+        temp[focus].style.textAlign=command
+        setValue(temp)
+        break;
       }
       setReload(!reload)
     // if(selecteds.indexOf(value)===-1){
@@ -63,11 +66,11 @@ function App() {
     // console.log(selecteds)
   }
 
-  function write({target}){
-    text = target.value
+  function write(target){
+    text = target
     console.log(text)
     var temp = value
-    temp[focus].text = target.value
+    temp[focus].text = text
     setValue(temp)
     setReload(!reload)
 
@@ -80,7 +83,8 @@ function App() {
     "style":{
       fontSize:14,
       fontWeight:'300',
-      fontStyle:'normal'
+      fontStyle:'normal',
+      textAlign: 'justify'
     }})
     setValue(temp)
     setReload(!reload)
@@ -100,6 +104,11 @@ function App() {
 
           <Button value={value[focus]} onClick={handleclick}><strong>n</strong></Button>
           <Button value={value[focus]} onClick={handleclick}><i>i</i></Button>
+          <Button value={value[focus]} onClick={handleclick}><i>justify</i></Button>
+          <Button value={value[focus]} onClick={handleclick}><i>right</i></Button>
+          <Button value={value[focus]} onClick={handleclick}><i>center</i></Button>
+          <Button value={value[focus]} onClick={handleclick}><i>left</i></Button>
+
           <Button2 onClick={handleclick}>size+</Button2>
           <Button2 onClick={handleclick}>size-</Button2>
         </div>
@@ -111,19 +120,40 @@ function App() {
       <div className="App-body"> 
           {
           value.map((data,index)=>(
-            <div className="App-body-box">
+            <div className="App-body-box" key={index}>
               {index===focus?
             <button  className="Button" onClick={()=>{addText()}}>+</button>:<div className="Button"/>}
             {index===focus && value.length>1?
             <button  className="Button" onClick={()=>{removeText()}}>-</button>:<div className="Button"/>}
-            <textarea cl placeholder="write here" style={{...data.style}} className="App-box" type="text" value={data.text} onChange={(target)=>{write(target)}} onFocus={()=>{setFocus(index)}} /> 
+            <div 
+            contentEditable="true" 
+            placeholder="write here" 
+            style={{...data.style}} 
+            className="App-box" 
+            type="text" 
+            data-text="Enter text here"
+            // onInput={(all)=>{write(all.currentTarget.textContent)}}
+            // onChange={(all)=>{console.log(all)}}
+            onFocus={()=>{setFocus(index)}}>
+              {()=>{ 
+            return (
+          data.text.split(' ** ').map(
+              (value,index)=>(
+                <strong>{value}</strong>
+            )
+            ))}
+              
+            
+            
+              }
+              </div> 
             </div>
             ))
             }
         </div>
       <div className="App-footer">
         this is an open-source project by: 
-        <a href="https://jecrs687.github.io/"> @jecrs687</a>
+        <a href="https://jecrs687.github.io/">@jecrs687</a>
       </div>
     </div>
   );

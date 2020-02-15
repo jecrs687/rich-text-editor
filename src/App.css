@@ -78,7 +78,10 @@ color: #ea12a2;
   width:  70vw;
   margin: 10px;
 }
-
+[contentEditable=true]:empty:not(:focus):before{
+  content:attr(data-text);
+  opacity: 0.8; 
+}
 .App-box:active{ 
   border-width: 2px;
 }
