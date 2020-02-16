@@ -3,12 +3,11 @@ import '../App.css';
 import { useState } from 'react';
 
 export function Button({children, onClick, value}){
-    const [isSelected, select]= useState(false) 
     
     return(
         <button 
-        style={{backgroundColor:isSelected? '#bbb': '#eee'}} 
-        onClick={()=>{onClick(children);select(!isSelected)}} >
+        style={{backgroundColor:'#eee'}} 
+        onClick={()=>{onClick(children);}} >
           {children}
         </button>
       )
