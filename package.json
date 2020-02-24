@@ -1,6 +1,6 @@
 {
   "name": "rich-text-editor",
-  "homepage":"https://jecrs687.github.io/rich-text-editor",
+  "homepage": "https://jecrs687.github.io/rich-text-editor",
   "version": "0.1.0",
   "private": true,
   "dependencies": {

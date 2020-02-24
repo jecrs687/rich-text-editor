@@ -3,7 +3,6 @@ import './App.css';
 import { useState } from 'react';
 import {Button, Button2} from './components/allComponents'
 
-
 function App() {
   const [value, setValue] = useState([
   {"text": '',
@@ -17,7 +16,6 @@ function App() {
   const [focus, setFocus] = useState(-1)
   // const [selecteds, setSelects]= useState([]) 
   const [reload, setReload] = useState(true)
-  var text;
   function handleclick(command){
     command = command.props? command.props.children:command;
     var temp=value;
@@ -66,26 +64,20 @@ function App() {
     // console.log(selecteds)
   }
 
-  function write(target){
-    text = target
-    console.log(text)
-    var temp = value
-    temp[focus].text = text
-    setValue(temp)
-    setReload(!reload)
+  // function write(target){
+  //   text = target
+  //   console.log(text)
+  //   var temp = value
+  //   temp[focus].text = text
+  //   setValue(temp)
+  //   setReload(!reload)
 
-  }
+  // }
   
   function addText(){
     var temp = value;
     temp.splice(focus+1, 0,   
-      {"text": '',
-    "style":{
-      fontSize:14,
-      fontWeight:'300',
-      fontStyle:'normal',
-      textAlign: 'justify'
-    }})
+      {"text": '',"style":{...value[focus].style}})
     setValue(temp)
     setReload(!reload)
 
@@ -143,6 +135,8 @@ function App() {
             }
         </div>
       <div className="App-footer">
+      {console.log(<div>{React.cloneElement(<strong/>)}</div>)}
+
         this is an open-source project by: 
         <a href="https://jecrs687.github.io/">@jecrs687</a>
       </div>

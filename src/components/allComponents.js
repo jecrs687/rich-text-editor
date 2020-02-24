@@ -1,6 +1,5 @@
-import React from 'react';
+import React, { useState } from 'react';
 import '../App.css';
-import { useState } from 'react';
 
 export function Button({children, onClick, value}){
     
@@ -31,3 +30,13 @@ export function Text({value, write,key, focus}){
     return(
       <input style={{...style}} className="App-box" type="text" value={text} onChange={(target)=>{changeText(target)}} />  )
   }
+
+export function Word({children}){
+  const [select, setSelect] = useState(false)
+  return(
+    <div>
+      
+      {children}
+    </div>
+  )
+}
