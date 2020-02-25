@@ -35,6 +35,52 @@ function App() {
         temp[focus].style.fontSize=temp[focus].style.fontSize+1
         setValue(temp)
         break;
+      case "h1":
+        temp[focus].style={
+          fontSize:25,
+          fontWeight:'900',
+          fontStyle:'normal',
+          textAlign:'center'
+        }
+        setValue(temp)
+        break;
+      case "h2":
+        temp[focus].style={
+          fontSize:20,
+          fontWeight:'900',
+          fontStyle:'normal',
+          textAlign:'center'
+        }
+        setValue(temp)
+        break;
+      case "h3":
+        temp[focus].style={
+          fontSize:18,
+          fontWeight:'300',
+          fontStyle:'normal',
+          textAlign:'center'
+        }
+        setValue(temp)
+        break;
+      case "h4":
+        temp[focus].style={
+          fontSize:16,
+          fontWeight:'300',
+          fontStyle:'normal',
+          textAlign:'center'
+        }
+        setValue(temp)
+        break;
+      case "h5":
+        temp[focus].style={
+          fontSize:12,
+          fontWeight:'300',
+          fontStyle:'normal',
+          textAlign:'center'
+        }
+        setValue(temp)
+        break;
+            
       case "size-":
         temp[focus].style.fontSize=temp[focus].style.fontSize-1
         setValue(temp)
@@ -100,9 +146,16 @@ function App() {
           <Button value={value[focus]} onClick={handleclick}><i>right</i></Button>
           <Button value={value[focus]} onClick={handleclick}><i>center</i></Button>
           <Button value={value[focus]} onClick={handleclick}><i>left</i></Button>
-
           <Button2 onClick={handleclick}>size+</Button2>
           <Button2 onClick={handleclick}>size-</Button2>
+        </div>
+        <div className="App-head-box">
+          <Button2 onClick={handleclick}><i>h1</i></Button2>
+          <Button2 onClick={handleclick}><i>h2</i></Button2>
+          <Button2 onClick={handleclick}><i>h3</i></Button2>
+          <Button2 onClick={handleclick}><i>h4</i></Button2>
+          <Button2 onClick={handleclick}><i>h5</i></Button2>
+
         </div>
         {value[focus]?
         <div className="App-head-box">

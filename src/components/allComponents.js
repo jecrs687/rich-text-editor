@@ -33,6 +33,7 @@ export function Text({value, write,key, focus}){
 
 export function Word({children}){
   const [select, setSelect] = useState(false)
+  
   return(
     <div>
       
