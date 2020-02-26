@@ -1,7 +1,7 @@
 import React from 'react';
 import './App.css';
 import { useState } from 'react';
-import {Button, Button2} from './components/allComponents'
+import {Button, Button2,Button3} from './components/allComponents'
 
 function App() {
   const [value, setValue] = useState([
@@ -142,19 +142,23 @@ function App() {
 
           <Button value={value[focus]} onClick={handleclick}><strong>n</strong></Button>
           <Button value={value[focus]} onClick={handleclick}><i>i</i></Button>
-          <Button value={value[focus]} onClick={handleclick}><i>justify</i></Button>
-          <Button value={value[focus]} onClick={handleclick}><i>right</i></Button>
-          <Button value={value[focus]} onClick={handleclick}><i>center</i></Button>
-          <Button value={value[focus]} onClick={handleclick}><i>left</i></Button>
           <Button2 onClick={handleclick}>size+</Button2>
           <Button2 onClick={handleclick}>size-</Button2>
         </div>
         <div className="App-head-box">
-          <Button2 onClick={handleclick}><i>h1</i></Button2>
-          <Button2 onClick={handleclick}><i>h2</i></Button2>
-          <Button2 onClick={handleclick}><i>h3</i></Button2>
-          <Button2 onClick={handleclick}><i>h4</i></Button2>
-          <Button2 onClick={handleclick}><i>h5</i></Button2>
+
+        <Button value={value[focus]} onClick={handleclick}><i>justify</i></Button>
+          <Button value={value[focus]} onClick={handleclick}><i>right</i></Button>
+          <Button value={value[focus]} onClick={handleclick}><i>center</i></Button>
+          <Button value={value[focus]} onClick={handleclick}><i>left</i></Button>
+          </div>
+        <div className="App-head-box">
+          
+          <Button3 onClick={handleclick}><i>h1</i></Button3>
+          <Button3 onClick={handleclick}><i>h2</i></Button3>
+          <Button3 onClick={handleclick}><i>h3</i></Button3>
+          <Button3 onClick={handleclick}><i>h4</i></Button3>
+          <Button3 onClick={handleclick}><i>h5</i></Button3>
 
         </div>
         {value[focus]?
@@ -171,6 +175,7 @@ function App() {
             {index===focus && value.length>1?
             <button  className="Button" onClick={()=>{removeText()}}>-</button>:<div className="Button"/>}
             <div 
+            onBlurCapture={(value)=>{console.log(value)}}
             contentEditable="true" 
             placeholder="write here" 
             style={{...data.style}} 
@@ -188,7 +193,6 @@ function App() {
             }
         </div>
       <div className="App-footer">
-      {console.log(<div>{React.cloneElement(<strong/>)}</div>)}
 
         this is an open-source project by: 
         <a href="https://jecrs687.github.io/">@jecrs687</a>

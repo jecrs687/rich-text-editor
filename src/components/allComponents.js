@@ -1,8 +1,7 @@
-import React, { useState } from 'react';
+import React from 'react';
 import '../App.css';
 
-export function Button({children, onClick, value}){
-    
+export function Button({children, onClick}){
     return(
         <button 
         style={{backgroundColor:'#eee'}} 
@@ -15,14 +14,22 @@ export function Button2({children, onClick}){
     return(
         <button  
         style={{backgroundColor: '#eee'}} 
-  
+        onClick={()=>{onClick(children);}} >
+          {children}
+        </button>
+      )
+  }
+  export function Button3({children, onClick}){
+    return(
+        <button  
+        style={{backgroundColor: '#eee'}} 
         onClick={()=>{onClick(children);}} >
           {children}
         </button>
       )
   }
   
-export function Text({value, write,key, focus}){
+export function Text({value, write}){
     const {style, text} = value
     function changeText({target}){
         write({value:target})
@@ -32,8 +39,8 @@ export function Text({value, write,key, focus}){
   }
 
 export function Word({children}){
-  const [select, setSelect] = useState(false)
-  
+  // const [select, setSelect] = useState(false)
+
   return(
     <div>
       
