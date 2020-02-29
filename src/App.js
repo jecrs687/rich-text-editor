@@ -37,7 +37,7 @@ function App() {
         break;
       case "h1":
         temp[focus].style={
-          fontSize:25,
+          fontSize:30,
           fontWeight:'900',
           fontStyle:'normal',
           textAlign:'center'
@@ -46,7 +46,7 @@ function App() {
         break;
       case "h2":
         temp[focus].style={
-          fontSize:20,
+          fontSize:24,
           fontWeight:'900',
           fontStyle:'normal',
           textAlign:'center'
