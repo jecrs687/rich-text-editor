@@ -3,7 +3,7 @@
   align-items: center;
   justify-content: center;
 }
-div:not(.App){
+.box-text{
   flex: 1;
   border: gray 0.6px solid;
   padding: 20px;
