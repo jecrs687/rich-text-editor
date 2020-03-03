@@ -2,11 +2,12 @@ import React,{useState, useEffect, useRef} from 'react';
 import './App.css';
 
 function App() {
-  const [text, setText]        = useState('');
-  const boxText                = useRef()
-  const [textDiv, setTextDiv]  = useState('');
+  const [text, setText]          = useState('');
+  const [text2, setText2]        = useState('');
+  const boxText                  = useRef()
+  const [textDiv, setTextDiv]    = useState('');
 
-  const [selected, setSelected] = useState({
+  const [selected, setSelected]  = useState({
       "start": 0,
       "end"  : 0
   })
@@ -23,7 +24,8 @@ function App() {
     })  };
 
     useEffect(()=>{
-      text.split('  *.&**  ');
+      boxText.current.innerHTML = text
+      console.log(boxText.current.innerHTML)
     },[text])
 
 // main code
@@ -33,13 +35,14 @@ function App() {
         <button onClick={
           ()=>{
             
-            var temp = textDiv.slice(0, selected.start)+ '  *.&**  ' + textDiv.slice(selected.start, selected.end) + '  *.&**  ' +  textDiv.slice(selected.end, textDiv.length);
+            var temp = textDiv.slice(0, selected.start)+ '<strong>' + textDiv.slice(selected.start, selected.end) + '</strong>' +  textDiv.slice(selected.end, textDiv.length);
+
             setText(temp)
           }
         }><strong>N</strong></button>
                 <button onClick={
           ()=>{
-            var temp = textDiv.slice(0, selected.start)+ '  *.&||  ' + textDiv.slice(selected.start, selected.end) + '  *.&||  ' +  textDiv.slice(selected.end, textDiv.length);
+            var temp = textDiv.slice(0, selected.start)+ '<i>' + textDiv.slice(selected.start, selected.end) + '</i>' +  textDiv.slice(selected.end, textDiv.length);
             setText(temp)
           }
         }><i>I</i></button>
@@ -48,8 +51,8 @@ function App() {
       className='box-text'
       contentEditable
       ref={boxText}
-      suppressContentEditableWarning={true}
       children={text}
+      suppressContentEditableWarning
       onInput={(value)=>{setTextDiv(value.currentTarget.textContent)}}
         />       
       <button onClick={()=>{console.log()}}>teste ....</button>

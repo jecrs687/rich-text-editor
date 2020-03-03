@@ -2,9 +2,11 @@
   display: flex;
   align-items: center;
   justify-content: center;
+  flex-direction: column;
 }
 .box-text{
-  flex: 1;
+  height: 60vh;
+  width: 60vw;
   border: gray 0.6px solid;
   padding: 20px;
 }
