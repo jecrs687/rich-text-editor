@@ -1,3 +1,18 @@
+
+:root::-webkit-scrollbar{
+  width: 0.4rem;
+}
+
+:root::-webkit-scrollbar-thumb{
+  background-color:#562349;
+}
+:root::-webkit-scrollbar-track{
+  background-color: #ad6989;
+}
+:root{
+  background-color: #fee2b3;
+
+}
 .App{
   display: flex;
   align-items: center;
@@ -5,8 +20,95 @@
   flex-direction: column;
 }
 .box-text{
-  height: 60vh;
-  width: 60vw;
-  border: gray 0.6px solid;
+  outline: none;
+  height: 280vh;
+  color:#999;
+  width: 82vw;
+  margin-top: 30px;
+  border: #aaa 0.5px solid;
+  border-radius: 2px;
   padding: 20px;
+}
+.box-text[placeholder]:empty:before {
+  content: attr(placeholder);
+  color: #999; 
+}
+
+.top{
+  position: absolute;
+  background-color: #ffa299;
+  width: 82vw;
+  top:-5px;
+  transition-duration: 500ms;
+  padding: 5px;
+  padding-left: 25px;
+  padding-right: 25px;
+
+}
+.top:hover{
+
+  top:0;
+  transition-duration: 500ms;
+
+}
+.top button{
+  outline: none;
+  background-color:#ad6989;
+  border: 0.5px;
+  margin: 2px;
+  padding: 5px;
+  align-items: center;
+  justify-content: center;
+  padding-left: 10px;
+  padding-right: 10px;
+  min-width: 40px;
+  font-size: xx-small;
+  transition-duration: 500ms;
+}
+.top:hover button{
+  background-color:#ad6989;
+  border: 0.5px;
+  margin: 2px;
+  padding: 5px;
+  padding-left: 10px;
+  padding-right: 10px;
+  min-width: 40px;
+  font-size: larger;
+  transition-duration: 500ms;
+}
+
+.top:hover button:hover{
+  background-color:#562349;
+  cursor: pointer;
+}
+.top:hover button:active{
+  margin:1px solid #562349;
+}
+.top input{
+  outline: none;
+  background-color:#ad6989;
+  border: 0.5px;
+  margin: 2px;
+  padding: 5px;
+  align-items: center;
+  justify-content: center;
+  padding-left: 10px;
+  padding-right: 10px;
+  min-width: 40px;
+  max-width: 25px;
+
+  font-size: xx-small;
+  transition-duration: 500ms;
+}
+.top:hover input{
+  background-color:#ad6989;
+  border: 0.5px;
+  margin: 2px;
+  padding: 5px;
+  padding-left: 10px;
+  padding-right: 10px;
+  min-width: 40px;
+  max-width: 25px;
+  font-size: larger;
+  transition-duration: 500ms;
 }
